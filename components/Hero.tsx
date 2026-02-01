@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-// REMPLACEZ CETTE URL PAR LE LIEN DE VOTRE PROPRE PHOTO
 const PROFILE_IMAGE_URL = "https://media.licdn.com/dms/image/v2/D4E03AQGgZHlRDOI-2g/profile-displayphoto-crop_800_800/B4EZmbVwqtGoAI-/0/1759247797635?e=1771459200&v=beta&t=keGdFNc7yipemXhf1jntvQQ9AtULLXeXSnIejVhO2B8";
 
 interface HeroProps {
   lang: 'en' | 'fr';
+  onPrintCV?: () => void;
 }
 
-const Hero: React.FC<HeroProps> = ({ lang }) => {
+const Hero: React.FC<HeroProps> = ({ lang, onPrintCV }) => {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 150]);
   const rotate = useTransform(scrollY, [0, 1000], [0, 25]);
@@ -28,10 +28,6 @@ const Hero: React.FC<HeroProps> = ({ lang }) => {
     }, 30);
     return () => clearInterval(interval);
   }, [lang]);
-
-  const handleDownload = () => {
-    window.print();
-  };
 
   return (
     <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 md:px-12 overflow-hidden min-h-screen flex items-center bg-[#F8FAFC]">
@@ -124,12 +120,12 @@ const Hero: React.FC<HeroProps> = ({ lang }) => {
                 </motion.a>
                 
                 <motion.button 
-                  onClick={handleDownload}
+                  onClick={onPrintCV}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="border border-[#E2E8F0] text-[#0F172A] px-10 py-5 text-[10px] uppercase tracking-[0.3em] hover:border-[#1e1b4b] hover:text-[#1e1b4b] transition-all flex items-center justify-center gap-4"
+                  className="border border-[#E2E8F0] text-[#0F172A] px-10 py-5 text-[10px] uppercase tracking-[0.3em] hover:border-[#1e1b4b] hover:text-[#1e1b4b] transition-all flex items-center justify-center gap-4 group"
                 >
-                  <span>{lang === 'en' ? 'Download CV' : 'Télécharger CV'}</span>
+                  <span className="group-hover:translate-y-[-2px] transition-transform">{lang === 'en' ? 'View Printable CV' : 'Voir CV Imprimable'}</span>
                 </motion.button>
               </div>
             </motion.div>

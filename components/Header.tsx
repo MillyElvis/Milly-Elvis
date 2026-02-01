@@ -4,9 +4,10 @@ import { motion } from 'framer-motion';
 interface HeaderProps {
   lang: 'en' | 'fr';
   toggleLang: () => void;
+  onPrintCV?: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ lang, toggleLang }) => {
+const Header: React.FC<HeaderProps> = ({ lang, toggleLang, onPrintCV }) => {
   const navItems = {
     en: ['Expertise', 'Experience', 'Skills', 'Contact'],
     fr: ['Expertise', 'Expérience', 'Compétences', 'Contact']
@@ -47,12 +48,12 @@ const Header: React.FC<HeaderProps> = ({ lang, toggleLang }) => {
             {lang === 'en' ? 'FR' : 'EN'}
           </button>
 
-          <a 
-            href="mailto:millyai.master@gmail.com" 
+          <button 
+            onClick={onPrintCV}
             className="bg-[#0F172A] text-white text-[10px] uppercase tracking-[0.2em] px-6 py-2.5 hover:bg-[#1e1b4b] transition-all font-bold hidden sm:block"
           >
-            {lang === 'en' ? 'Recruit Me' : 'Me Recruter'}
-          </a>
+            {lang === 'en' ? 'Hire Me' : "M'embaucher"}
+          </button>
         </div>
       </div>
     </motion.nav>
