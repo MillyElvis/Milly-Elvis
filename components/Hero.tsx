@@ -38,9 +38,9 @@ const Hero: React.FC<HeroProps> = ({ lang }) => {
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.04 }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] serif font-bold pointer-events-none select-none z-0 whitespace-nowrap"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] serif font-bold pointer-events-none select-none z-0 whitespace-nowrap"
       >
-        MILLICENT
+        MILLY ELVIS
       </motion.div>
 
       <motion.div 
@@ -58,7 +58,6 @@ const Hero: React.FC<HeroProps> = ({ lang }) => {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="flex items-center gap-4 mb-6"
             >
-              <div className="h-[1px] w-8 bg-[#1e1b4b]" />
               <div className="text-[#1e1b4b] text-[10px] uppercase tracking-[0.4em] font-bold mono flex items-center gap-2">
                 <span>{lang === 'en' ? 'AI Strategy' : 'Stratégie IA'}</span>
                 <span className="opacity-30 mx-1">|</span>
