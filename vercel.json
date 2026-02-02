@@ -1,9 +1,7 @@
 {
-  "redirects": [
-    {
-      "source": "/baybridge",
-      "destination": "https://copy-of-copy-of-milly-elvis-ai-digital-strategy-p-550242912642.us-west1.run.app",
-      "permanent": false
-    }
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/baybridge/?", "dest": "/" },
+    { "src": "/(.*)", "dest": "/" }
   ]
 }
