@@ -1,7 +1,5 @@
 {
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/baybridge/?", "dest": "/baybridge.html" },
-    { "src": "/(.*)", "dest": "/" }
+  "rewrites": [
+    { "source": "/baybridge", "destination": "/baybridge.html" }
   ]
 }
