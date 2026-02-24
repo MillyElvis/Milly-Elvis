@@ -1,14 +1,12 @@
-// vite.config.ts
-import { defineConfig } from 'vite'
-import { resolve } from 'path'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  build: {
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html'),
-        baybridge: resolve(__dirname, 'baybridge.html'), // 👈 add this
-      },
-    },
+  plugins: [react()],
+  server: {
+    port: 3000,
   },
-})
+  build: {
+    outDir: 'dist',
+  }
+});
