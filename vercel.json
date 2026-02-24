@@ -3,12 +3,3 @@
     { "source": "/baybridge", "destination": "/baybridge.html" }
   ]
 }
-```
-
-That's the only rule needed. The flow will be:
-```
-User visits millyelvis.com/baybridge
-        ↓
-Vercel serves public/baybridge.html
-        ↓
-Iframe loads your Cloud Run app
